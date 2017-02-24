@@ -31,26 +31,26 @@ public class Route {
         long startTime = System
                 .currentTimeMillis();
         boolean stop;
-        do {
+      //  do {
             labyrinth.get(x2,y2).setN(0);
-            System.out.println(x2+" "+y2);
+            System.out.println(x1+" "+y1);
             stop = true;
             for (List<Point> y :labyrinthMap) {
                 for (Point xPoint: y) {
                     if (xPoint.getN() == magicNumber) {
-                      //  System.out.println(xPoint.getX()+" "+xPoint.getY());
+                        System.out.println(xPoint.getN()+" xy "+xPoint.getX()+" "+xPoint.getY());
                         for (Point around: labyrinth.lookAround(xPoint)){
-                            if (around.getN()==0||around.getN()>magicNumber+1){
+                            System.out.println("aroudxy"+ around.getX()+" "+around.getY());
+                        /*    if (around.getN()==0||around.getN()>magicNumber+1){
                                 stop=false;
-                              // System.out.println(around.getX()+" "+around.getY());
                                 labyrinth.get(around.getX(), around.getY()).setN(magicNumber+1);
-                            }
+                            }*/
                         }
                     }
                 }
             }
             magicNumber++;
-        } while (!stop & labyrinth.get(x2,y2).getN() == 0);
+      //  } while (!stop & labyrinth.get(x2,y2).getN() == 0);
         if (labyrinth.get(x2,y2).getN() == 0) {
             pathFound = false;
         }
@@ -60,7 +60,7 @@ public class Route {
             while (magicNumber != 1000) {
                 magicNumber--;
                 Point lastPointInPath= pathPoint.get(pathPoint.size()-1);
-                for(Point around:labyrinth.lookAround(lastPointInPath.getX(), lastPointInPath.getY())){
+                for(Point around:labyrinth.lookAround(lastPointInPath)){
                     if (around.getN()==magicNumber){pathPoint.add(around);
                        }
             }

@@ -19,34 +19,32 @@ public class Labyrinth {
         return labyrinthMap;
     }
     public Point get(int x, int y) {
-        return labyrinthMap.get(x).get(y);
+        return labyrinthMap.get(y).get(x);
     }
 
 
     public Point get(Point point) {
-        return labyrinthMap.get(point.getX()).get(point.getY());
+        return labyrinthMap.get(point.getY()).get(point.getX());
     }
-    public List<Point> lookAround(int x, int y) {
-        List<Point> list = new ArrayList<Point>();
-        list.add(get(x, y - 1));
-        list.add(get(x, y + 1));
-        list.add(get(x - 1, y));
-        list.add(get(x + 1, y));
-        return list;
-    }
+
     public List<Point> lookAround(Point point) {
         List<Point> list = new ArrayList<Point>();
         if (point.getY() > 0) {
             list.add(get(point.getX(), point.getY() - 1));
+            System.out.println("up");
         }
         if (point.getY() < labyrinthMap.size() - 1) {
             list.add(get(point.getX(), point.getY() + 1));
+            System.out.println("down");
         }
-        if (point.getY() > 1) {
+        if (point.getY() > 0) {
             list.add(get(point.getX() - 1, point.getY()));
+            System.out.println("left");
         }
-        if (point.getX() < labyrinthMap.size() - 1) {
+        System.out.println(labyrinthMap.get(0).size() - 1);
+        if (point.getX() < labyrinthMap.get(0).size() - 1) {
             list.add(get(point.getX() + 1, point.getY()));
+            System.out.println("right");
         }
         return list;
     }
