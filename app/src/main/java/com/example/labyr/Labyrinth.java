@@ -30,20 +30,19 @@ public class Labyrinth {
     public List<Point> lookAround(Point point) {
         List<Point> list = new ArrayList<Point>();
         if (point.getY() > 0) {
-            list.add(get(point.getX(), point.getY() - 1));
+            list.add(get(point.getY() - 1, point.getX()));
             System.out.println("up");
         }
         if (point.getY() < labyrinthMap.size() - 1) {
-            list.add(get(point.getX(), point.getY() + 1));
+            list.add(get(point.getY()+1, point.getX()));
             System.out.println("down");
         }
         if (point.getY() > 0) {
-            list.add(get(point.getX() - 1, point.getY()));
+            list.add(get(point.getY(), point.getX()-1));
             System.out.println("left");
         }
-        System.out.println(labyrinthMap.get(0).size() - 1);
         if (point.getX() < labyrinthMap.get(0).size() - 1) {
-            list.add(get(point.getX() + 1, point.getY()));
+            list.add(get(point.getY(), point.getX()+1));
             System.out.println("right");
         }
         return list;

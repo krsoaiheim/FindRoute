@@ -28,6 +28,7 @@ public class Route {
         labyrinth.get(x2,y2).setN(0);
         System.out.println(labyrinth.get(x1,y1).getN());
         System.out.println(labyrinth.get(x2,y2).getN());
+
         long startTime = System
                 .currentTimeMillis();
         boolean stop;
@@ -35,10 +36,13 @@ public class Route {
             labyrinth.get(x2,y2).setN(0);
             System.out.println(x1+" "+y1);
             stop = true;
+        System.out.println(labyrinth.get(0,0).getN());
             for (List<Point> y :labyrinthMap) {
                 for (Point xPoint: y) {
                     if (xPoint.getN() == magicNumber) {
-                        System.out.println(xPoint.getN()+" xy "+xPoint.getX()+" "+xPoint.getY());
+                        System.out.println(labyrinth.get(0,0).getN()+" xy ");
+                        System.out.println(xPoint.getN()+" xy "+labyrinth.get(xPoint).getX()+" " +
+                                ""+labyrinth.get(xPoint).getY());
                         for (Point around: labyrinth.lookAround(xPoint)){
                             System.out.println("aroudxy"+ around.getX()+" "+around.getY());
                         /*    if (around.getN()==0||around.getN()>magicNumber+1){
