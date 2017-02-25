@@ -11,8 +11,8 @@ public class Route {
   private String route;
   private long passageTime;
   public void buildRoute(Labyrinth labyrinth, int x1, int y1, int x2, int y2, Context context) {
-    int magicNumber = 1000;
-    labyrinth = (new DataReader()).readData("lab.txt", context);
+
+    long magicNumber = labyrinth.getWayLength()+1;
     List<List<Point>> labyrinthMap = labyrinth.getLabyrinthMap();
     labyrinth.get(x1, y1).setN(magicNumber);
     labyrinth.get(x2, y2).setN(0);
@@ -41,7 +41,7 @@ public class Route {
     }
     else {
       pathPoint.add(new Point(x2, y2, Byte.parseByte("0"), 0));
-      while (magicNumber != 1000) {
+      while (magicNumber != labyrinth.getWayLength()+1) {
         magicNumber--;
         Point lastPointInPath = pathPoint.get(pathPoint.size()-1);
         for (Point around : labyrinth.lookAround(lastPointInPath.getX(), lastPointInPath.getY())) {
@@ -71,9 +71,9 @@ public class Route {
   public List<Point> getPathPoint() {
     return pathPoint;
   }
-  public String getRoute() {
+ /* public String getRoute() {
     return route;
-  }
+  }*/
   public long getTime() {
     return passageTime;
   }

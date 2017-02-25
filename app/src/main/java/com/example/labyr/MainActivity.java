@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     endY = (EditText) findViewById(R.id.editText4);
     final Button button = (Button) findViewById(R.id.button);
     final int[] param = new int[4];
-    final Labyrinth labyrinth = (new DataReader()).readData("lab.txt", getApplicationContext());
+    final Labyrinth labyrinth = (new LabyrinthData()).readData("lab.txt", getApplicationContext());
     final List<List<Point>> labyrinthMap = labyrinth.getLabyrinthMap();
     button.setOnClickListener(new View.OnClickListener() {
       @Override

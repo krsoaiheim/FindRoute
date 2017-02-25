@@ -4,8 +4,8 @@ public class Point {
   private int x;
   private int y;
   private byte wall;
-  private int n;
-  public Point(int x, int y, byte w, int n) {
+  private long n;
+  public Point(int x, int y, byte w, long n) {
     this.x = x;
     this.y = y;
     this.wall = w;
@@ -17,10 +17,10 @@ public class Point {
   public int getY() {
     return y;
   }
-  public int getN() {
+  public long getN() {
     return n;
   }
-  public void setN(int n) {
+  public void setN(long n) {
     this.n = n;
   }
   public byte getWall() {

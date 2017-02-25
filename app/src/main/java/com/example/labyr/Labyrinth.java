@@ -5,6 +5,13 @@ import java.util.List;
 
 public class Labyrinth {
   private List<List<Point>> labyrinthMap = new ArrayList<>();
+  public long getWayLength() {
+    return wayLength;
+  }
+  public void setWayLength(long wayLength) {
+    this.wayLength = wayLength;
+  }
+  private long wayLength;
   public Labyrinth() {
     this.labyrinthMap = new ArrayList<>();
   }
